@@ -1,0 +1,78 @@
+﻿<Page x:Class="FootballTicketOffice.Report.ReportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FootballTicketOffice.Report"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ReportPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,6">
+            <Label FontFamily="Bahnschrift SemiBold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Отчёт о проданных билетах."></Label>
+            <Label FontFamily="Bahnschrift SemiBold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Поиск: " Margin="30,0,0,0"></Label>
+            <TextBox VerticalAlignment="Center" Name="txtBoxSearch" Width="200" HorizontalAlignment="Center" TextChanged="txtBoxSearch_TextChanged" PreviewTextInput="txtBoxSearch_PreviewTextInput"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
+            <Label Content="Выберите начальный &#x0a;                  период" HorizontalAlignment="Center" FontSize="14" FontFamily="Bahnschrift SemiBold"></Label>
+            <DatePicker Width="125" Margin="0,10,0,0" Name="datePickerFrom" Background="White" PreviewTextInput="datePickerFrom_PreviewTextInput"></DatePicker>
+            <Label Content="Выберите конечный &#x0a;                  период" HorizontalAlignment="Center" FontSize="14" Margin="0,20,0,0" FontFamily="Bahnschrift SemiBold"></Label>
+            <DatePicker Width="125" Margin="0,10,0,0" Name="datePickerUntill" Background="White" PreviewTextInput="datePickerUntill_PreviewTextInput"></DatePicker>
+            <Button Width="125" Height="20" Content="Сформировать"  FontSize="16" Name="btnGenerate" Click="btnGenerate_Click" Margin="0,30,0,0"></Button>
+            <Button Width="125" Height="20" Content="Печать"  FontSize="16" Name="btnPrint" Click="btnPrint_Click" Margin="0,30,0,0"></Button>
+        </StackPanel>
+        <DataGrid x:Name="DGridReport" AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Клиент" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Client.LastName}"></TextBlock>
+                                <Label Content=" " VerticalAlignment="Top" ></Label>
+                                <TextBlock Text="{Binding Client.FirstName}" ></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Матч" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Match.Team.Title}"></TextBlock>
+                                <Label Content="-" VerticalAlignment="Top" Margin="0,-5,0,0" ></Label>
+                                <TextBlock Text="{Binding Match.Team1.Title}" ></TextBlock>
+                                <Label Content=""></Label>
+                                <TextBlock Text="{Binding Match.Date, ConverterCulture=ru, StringFormat=dd.MM.yy}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Сектор" Binding="{Binding Sector}" Width="50"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ряд" Binding="{Binding Row}" Width="32"></DataGridTextColumn>
+                <DataGridTextColumn Header="Место" Binding="{Binding Site}" Width="45"></DataGridTextColumn>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Price, StringFormat=c, ConverterCulture=ru}" Width="80"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата покупки" Binding="{Binding PurchaseDate, ConverterCulture=ru}" Width="115"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Менеджер" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding User.LastName}"></TextBlock>
+                                <Label Content=" " VerticalAlignment="Top" ></Label>
+                                <TextBlock Text="{Binding User.FirstName}" ></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

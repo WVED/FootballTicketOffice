@@ -1,0 +1,50 @@
+﻿<Page x:Class="FootballTicketOffice.Pages.MatchPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FootballTicketOffice.Pages"
+      mc:Ignorable="d" 
+      IsVisibleChanged="Page_IsVisibleChanged"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MatchPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,8">
+            <Label FontFamily="Bahnschrift SemiBold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Поиск: "></Label>
+            <TextBox VerticalAlignment="Center" Name="txtBoxSearch" Width="200" HorizontalAlignment="Center" TextChanged="txtBoxSearch_TextChanged" PreviewTextInput="txtBoxSearch_PreviewTextInput"></TextBox>
+        </StackPanel>
+        <DataGrid x:Name="DGridMatch" RowHeaderWidth="0" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Команды" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Team.Title}" FontSize="18"></TextBlock>
+                                <Label Content=" - " VerticalAlignment="Top" Margin="0,-5,0,30" FontSize="18"></Label>
+                                <TextBlock Text="{Binding Team1.Title}" FontSize="18"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="*" FontSize="18"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Height="24" Content="Редактировать" FontSize="15" Name="btnEdit" Click="btnEdit_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            <Button Width="200" Height="30" Content="Добавить матч" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Name="btnAdd" Click="btnAdd_Click"></Button>
+            <Button Height="30" Content="Удалить матч(-и)" Width="200" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Name="btnDelete" Click="btnDelete_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Page>
