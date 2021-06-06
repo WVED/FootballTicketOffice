@@ -81,7 +81,7 @@ namespace FootballTicketOffice
 
         private void txtBoxSearch_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("^[a-zA-Z]");
+            Regex regex = new Regex("[^a-zA-Z]");
             e.Handled = regex.IsMatch(e.Text);
         }
     }

@@ -26,7 +26,7 @@
         <TextBox Name="txtBxLgn" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,25,0,0" Grid.Column="1"></TextBox>
         <TextBlock Text="Пароль" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Grid.Row="2" Margin="0,10,0,0" Grid.Column="1"></TextBlock>
         <PasswordBox Name="passwdBx" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,25,0,0" Grid.Column="1"></PasswordBox>
-        <TextBlock Text="Показать пароль" Width="125" Height="20" FontSize="16" Name="chkLabel" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Margin="0,24,0,0"></TextBlock>
+        <TextBlock Text="Показать пароль" Width="125" Height="20" FontSize="16" Name="chkLabel" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Margin="0,23,0,0"></TextBlock>
         <CheckBox Name="chkBxPasswd" Width="15" Height="15" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Margin="0,25,0,0" Checked="chkBxPasswd_Checked" Unchecked="chkBxPasswd_Unchecked"></CheckBox>
         <Button Width="130" Content="Авторизоваться" Height="30" Name="btnLgn" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnLgn_Click" FontSize="15"></Button>
         <Button Name="btnCls" Content="Закрыть" Width="130" Height="30" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="btnCls_Click" FontSize="15"></Button>

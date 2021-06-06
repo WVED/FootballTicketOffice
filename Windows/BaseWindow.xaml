@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FootballTicketOffice"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="FootballTicketOffice " Height="500" Width="1050" MinHeight="500" MinWidth="1050" Icon="/FootballTicketOffice;component/Resources/blackball.ico">
+        Title="Главное меню" Height="500" Width="1050" MinHeight="500" MinWidth="1050" Icon="/FootballTicketOffice;component/Resources/blackball.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"></ColumnDefinition>
@@ -31,7 +31,7 @@
                             <Setter Property="FontFamily" Value="Bahnschrift SemiBold"></Setter>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding RoleId}" Value="2">
-                            <Setter Property="Text" Value="Здравствуйте, Вы находитесь на окне менеджера"></Setter>
+                            <Setter Property="Text" Value="Здравствуйте, Вы находитесь на окне кассира"></Setter>
                             <Setter Property="FontFamily" Value="Bahnschrift SemiBold"></Setter>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding RoleId}" Value="3">

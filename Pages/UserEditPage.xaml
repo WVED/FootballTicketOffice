@@ -27,7 +27,9 @@
         <TextBox Grid.Column="1" Text="{Binding LastName}" Width="300" Height="25" Name="txtBoxLastName"></TextBox>
         <TextBox Grid.Column="1" Text="{Binding FirstName}" Grid.Row="1" Width="300" Height="25" Name="txtBoxFirstName"></TextBox>
         <TextBox Grid.Column="1" Text="{Binding Login}" Grid.Row="2" Width="300" Height="25" Name="txtBoxLogin"></TextBox>
-        <ComboBox x:Name="comboBoxRole" Grid.Row="3" Grid.Column="1" Width="300" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectedItem="{Binding Role}" DisplayMemberPath="Name"></ComboBox>
-        <Button Width="200" Height="30" Grid.Row="6" Grid.ColumnSpan="2" Name="btnSave" Content="Сохранить" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnSave_Click"></Button>
+        <ComboBox x:Name="comboBoxRole" Grid.Row="3" Grid.Column="1" Width="300" Height="25" VerticalContentAlignment="Center" 
+                  HorizontalContentAlignment="Center" SelectedItem="{Binding Role}" DisplayMemberPath="Name"></ComboBox>
+        <Button Width="200" Height="30" Grid.Row="6" Grid.ColumnSpan="2" Name="btnSave" Content="Сохранить" FontSize="18"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnSave_Click"></Button>
     </Grid>
 </Page>

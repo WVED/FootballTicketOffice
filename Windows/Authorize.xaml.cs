@@ -20,11 +20,9 @@ namespace FootballTicketOffice.Windows
     /// </summary>
     public partial class Authorize : Window
     {
-        public Authorize()
+       public Authorize()
         {
             InitializeComponent();
-            txtBxLgn.Text = "manager";
-            passwdBx.Password = "manager";
         }
 
         private void chkBxPasswd_Checked(object sender, RoutedEventArgs e)

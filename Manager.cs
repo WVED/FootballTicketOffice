@@ -36,7 +36,7 @@ namespace FootballTicketOffice
             if (validConditions == 0) return false;
             foreach (char c in password)
             {
-                if (c >= '0' && c <= '9')
+                if (c >= '0' && c <= '8')
                 {
                     validConditions++;
                     break;
@@ -45,7 +45,7 @@ namespace FootballTicketOffice
             if (validConditions == 1) return false;
             if (validConditions == 2)
             {
-                char[] special = { '@', '#', '$', '%', '^', '&', '+', '=' }; // or whatever    
+                char[] special = { '@', '#', '$', '%', '^', '&', '+', '=' };    
                 if (password.IndexOfAny(special) == -1) return false;
             }
             return true;

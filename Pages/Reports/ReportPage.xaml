@@ -18,9 +18,7 @@
             <ColumnDefinition Width="150"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,6">
-            <Label FontFamily="Bahnschrift SemiBold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Отчёт о проданных билетах."></Label>
-            <Label FontFamily="Bahnschrift SemiBold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Поиск: " Margin="30,0,0,0"></Label>
-            <TextBox VerticalAlignment="Center" Name="txtBoxSearch" Width="200" HorizontalAlignment="Center" TextChanged="txtBoxSearch_TextChanged" PreviewTextInput="txtBoxSearch_PreviewTextInput"></TextBox>
+            <Label FontFamily="Bahnschrift SemiBold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Отчёт о проданных билетах."></Label>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
             <Label Content="Выберите начальный &#x0a;                  период" HorizontalAlignment="Center" FontSize="14" FontFamily="Bahnschrift SemiBold"></Label>
@@ -32,7 +30,7 @@
         </StackPanel>
         <DataGrid x:Name="DGridReport" AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0" Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Клиент" Width="*">
+                <DataGridTemplateColumn Header="Клиент" Width="150">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -55,13 +53,10 @@
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Сектор" Binding="{Binding Sector}" Width="50"></DataGridTextColumn>
-                <DataGridTextColumn Header="Ряд" Binding="{Binding Row}" Width="32"></DataGridTextColumn>
-                <DataGridTextColumn Header="Место" Binding="{Binding Site}" Width="45"></DataGridTextColumn>
-                <DataGridTextColumn Header="Стоимость" Binding="{Binding Price, StringFormat=c, ConverterCulture=ru}" Width="80"></DataGridTextColumn>
+                </DataGridTemplateColumn>   
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Price, StringFormat=c, ConverterCulture=ru}" Width="70"></DataGridTextColumn>
                 <DataGridTextColumn Header="Дата покупки" Binding="{Binding PurchaseDate, ConverterCulture=ru}" Width="115"></DataGridTextColumn>
-                <DataGridTemplateColumn Header="Менеджер" Width="*">
+                <DataGridTemplateColumn Header="Менеджер" Width="150">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">

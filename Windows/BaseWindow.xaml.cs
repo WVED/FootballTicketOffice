@@ -33,7 +33,7 @@ namespace FootballTicketOffice
             Manager.mainFrame = mainFrame;
             txtBlckUser.Text += Manager.loginedUser.LastName + ' ' + Manager.loginedUser.FirstName;
             roleImage.Source = new BitmapImage(new Uri($"pack://application:,,,/;component/Resources/{Manager.loginedUser.Role.Name}.png", UriKind.Absolute));
-            if (Manager.loginedUser.Role.Name == "admin")
+            if (Manager.loginedUser.Role.Name == "Admin")
             {
                 btnAccounts.Visibility = Visibility.Collapsed;
                 btnClients.Visibility = Visibility.Collapsed;
@@ -41,19 +41,17 @@ namespace FootballTicketOffice
                 btnTickets.Visibility = Visibility.Collapsed;
                 btnMatches.Visibility = Visibility.Collapsed;
             }
-            else if (Manager.loginedUser.Role.Name == "manager")
+            else if (Manager.loginedUser.Role.Name == "Cashier")
             {
                 btnHistory.Visibility = Visibility.Collapsed;
                 btnUsers.Visibility = Visibility.Collapsed;
                 btnAccounts.Visibility = Visibility.Collapsed;
             }
-            else if (Manager.loginedUser.Role.Name == "accountant")
+            else if (Manager.loginedUser.Role.Name == "Accountant")
             {
                 btnHistory.Visibility = Visibility.Collapsed;
-                btnClients.Visibility = Visibility.Collapsed;
                 btnUsers.Visibility = Visibility.Collapsed;
                 btnTeams.Visibility = Visibility.Collapsed;
-                btnMatches.Visibility = Visibility.Collapsed;
                 btnTickets.Visibility = Visibility.Collapsed;
             }
         }

@@ -28,16 +28,7 @@ namespace FootballTicketOffice.Report
         {
             InitializeComponent();
             DGridReport.ItemsSource = FootballTicketOfficeEntities.getContext().Ticket.ToList();
-            btnPrint.Visibility = Visibility.Collapsed;
         }
-
-        private void txtBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            List<Ticket> currentReport = FootballTicketOfficeEntities.getContext().Ticket.ToList();
-            currentReport = currentReport.Where(p => p.Client.LastName.ToLower().Contains(txtBoxSearch.Text.ToLower()) || p.Client.FirstName.ToLower().Contains(txtBoxSearch.Text.ToLower()) || p.Match.Team.Title.ToLower().Contains(txtBoxSearch.Text.ToLower()) || p.Match.Team1.Title.ToLower().Contains(txtBoxSearch.Text.ToLower()) || p.User.LastName.ToLower().Contains(txtBoxSearch.Text.ToLower()) || p.User.FirstName.ToLower().Contains(txtBoxSearch.Text.ToLower())).ToList();
-            DGridReport.ItemsSource = currentReport.ToList();
-        }
-
         private void txtBoxSearch_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^а-яА-Я]");
@@ -50,15 +41,10 @@ namespace FootballTicketOffice.Report
                 if (datePickerUntill.SelectedDate > datePickerFrom.SelectedDate)
                 {
                     DGridReport.ItemsSource = FootballTicketOfficeEntities.getContext().Ticket.Where(p => p.PurchaseDate > datePickerFrom.SelectedDate && p.PurchaseDate < datePickerUntill.SelectedDate).ToList();
-                    btnPrint.Visibility = Visibility.Visible;
                     if (DGridReport.Items.Count == 0)
                     { 
                         MessageBox.Show("За выбранный период нет продаж", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                         return;
-                    }
-                    else
-                    {
-                        DGridReport.Visibility = Visibility.Visible;
                     }
                 }
                 else
@@ -82,6 +68,18 @@ namespace FootballTicketOffice.Report
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Controls.PrintDialog Printdlg = new System.Windows.Controls.PrintDialog();
+            if ((bool)Printdlg.ShowDialog().GetValueOrDefault())
+            {
+                Size pageSize = new Size(Printdlg.PrintableAreaWidth, Printdlg.PrintableAreaHeight);
+                DGridReport.Measure(pageSize);
+                DGridReport.Arrange(new Rect(0, 0, pageSize.Width, pageSize.Height));
+                Printdlg.PrintVisual(DGridReport, Title);
+            }
         }
     }
 }
